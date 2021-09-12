@@ -21,10 +21,12 @@ from django.conf.urls.static import static
 from  DjangoEcommerce import settings
 
 urlpatterns = [
-    path('admin/', views.adminLogin),
-    path('demo',views.demoPage),
+    path('admin/', views.adminLogin,name='admin_login'),
+    
+    path('admin_login_process',views.AdminLoginProcess,name="admin_login_process"),
+    path('admin_logout_process',views.AdminLogoutProcess,name="admin_logout_process"),
 
     # PAGE FOR ADMIN
-    path('admin_home',AdminViews.admin_home) 
+    path('admin_home',AdminViews.admin_home,name="admin_home") 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 
